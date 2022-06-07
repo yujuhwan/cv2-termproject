@@ -32,6 +32,6 @@ def rotate_plate(image, rect):
     rot_img= cv2.warpAffine(image, rot_mat, size, cv2.INTER_CUBIC)  # 회전 변환
 
     crop_img = cv2.getRectSubPix(rot_img, (w, h), center)  # 후보영역 가져오기
-    crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
-    return cv2.resize(crop_img, (144, 28))
+    crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)  # 명암도 영상
+    return cv2.resize(crop_img, (144, 28))      # SVM학습 데이터셋의 크기와 같도록 가로 144, 세로24 크기 반환
 

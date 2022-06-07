@@ -23,5 +23,5 @@ labels[:70] = 1                                         # 번호판 라벨 번�
 print("SVM 객체 생성")
 svm = SVM_create(cv2.TERM_CRITERIA_MAX_ITER, 1000, 1e-6)         # SVM 객체 생성(최대 반복수(1000)를 기반을 학습 수행)
 svm.train(trainData, cv2.ml.ROW_SAMPLE, labels)                  # 학습 수행
-svm.save("SVMtrain.xml")                                         # 학습된 데이터 저장
+svm.save("SVMtrain3.xml")                                         # 학습된 데이터 저장
 print("SVM 객체 저장 완료")
