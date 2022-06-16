@@ -1,8 +1,7 @@
-# 예제 12.3.1 번호판 숫자 인식 프로그램 완성
-
 from plate_preprocess import *        # 전처리 및 후보 영역 검출 함수
 from plate_candidate import *         # 후보 영역 개선 및 후보 영상 생성 함수
 from plate_classify import *  # k-NN 학습 및 분류
+import plate_classify
 
 car_no = int(input("자동차 영상 번호 (0~20): "))
 image, morph = preprocessing(car_no)                                    # 전처리
@@ -41,8 +40,11 @@ if plate_no >= 0:
 
     h,w  = color_plate.shape[:2]
     image[0:h, 0:w] = color_plate        # 번호판 원본 영상에 복사
+
+
 else:
     print("번호판 미검출")
+
 
 cv2.imshow("image", image)
 cv2.waitKey(0)
