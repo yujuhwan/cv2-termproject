@@ -13,7 +13,7 @@ new_candis = [find_candidates(fill) for fill in fills]                   # 재�
 new_candis = [cand[0] for cand in new_candis if cand]                    # 재후보 있으면 저장
 candidate_imgs = [rotate_plate(image, cand) for cand in new_candis]      # 후보 영역 번호판 영상
 
-svm = cv2.ml.SVM_load("SVMtrain3.xml")                  # 학습된 데이터 로드
+svm = cv2.ml.SVM_load("SVMTrain.xml")                  # 학습된 데이터 로드
 rows = np.reshape(candidate_imgs, (len(candidate_imgs), -1))    # 1행 데이터들로 변환
 _, results = svm.predict(rows.astype("float32"))                # 분류 수행
 result = np.where(results == 1)[0]        # 1인 값의 위치 찾기
@@ -24,6 +24,7 @@ plate_no = result[0] if len(result)>0 else -1            # 번호판 판정
 K1, K2 = 10, 10
 nknn = kNN_train("images/train_numbers.png", K1, 10, 20) # 숫자 학습
 tknn = kNN_train("images/train_texts.png", K2, 40, 20)   # 문자 학습
+
 
 if plate_no >= 0:
     plate_img = preprocessing_plate(candidate_imgs[plate_no])   # 번호판 영상 전처리

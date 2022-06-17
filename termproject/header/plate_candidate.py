@@ -25,7 +25,7 @@ def rotate_plate(image, rect):
     center, (w, h), angle = rect       # 중심 좌표, 크기, 회전 각도
     if w < h :                         # 세로가 긴 영역이면
         w, h = h, w                    # 가로와 세로 맞바꿈
-        angle += 90                    # 회전 각도 조정
+        angle += 270                    # 회전 각도 조정
 
     size = image.shape[1::-1]            # 행태와 크기는 역순
     rot_mat = cv2.getRotationMatrix2D(center, angle, 1)  # 회전 행렬 계산

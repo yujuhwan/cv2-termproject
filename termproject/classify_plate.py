@@ -13,7 +13,7 @@ new_candis = [find_candidates(fill) for fill in fills]
 new_candis = [cand[0] for cand in new_candis if cand]
 candidate_imgs = [rotate_plate(image, cand) for cand in new_candis]
 
-svm = cv2.ml.SVM_load("svmtrain3.xml")                          # 학습된 데이터 로드
+svm = cv2.ml.SVM_load("SVMtrain5.xml")                          # 학습된 데이터 로드
 rows = np.reshape(candidate_imgs, (len(candidate_imgs), -1))    # 1행 데이터들로 변환
 _, results = svm.predict(rows.astype("float32"))                # 분류 수행
 correct = np.where(results == 1)[0]                             # 1인 값의 위치 찾기

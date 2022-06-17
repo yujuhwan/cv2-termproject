@@ -56,6 +56,7 @@ def find_objects(sub_mat):
 
 # 검출 객체 영상의 숫자 및 문자 인식
 def classify_numbers(cells, nknn, tknn, K1, K2, object_rois):
+    global carnum
     if len(cells) != 7:                         # 검출된 객체가 7개 아니면 오류를 출력
         print("검출된 숫자(문자)가 7개가 아닙니다.")
         return
@@ -76,18 +77,19 @@ def classify_numbers(cells, nknn, tknn, K1, K2, object_rois):
     resp1 = resp1.flatten().astype('int')                   # 1행으로 만든 후 정수형으로 변환
     results = resp1[idx].astype(str)                        # x좌표로 정렬한 idx 행렬을 점차로 지정하면 숫자 검출 결과 정렬
     results[2] = texts[int(resp2)]                          # 기준값 레이블의 문자값 가져옴
-    text = ''.join(results)
+    carnum = "".join(results)
 
     print("정렬 인덱스:", idx)
     print("숫자 분류 결과:", resp1)
     print("문자 분류 결과:", int(resp2))
-    print("분류 결과: ", text)                 # result 리스트를 join() 함수로 하나로 합쳐서 출력
+    print("분류 결과: ", carnum)                 # result 리스트를 join() 함수로 하나로 합쳐서 출력
 
-    if text == "69두3842" or "23오0438":
-        print("******** 등록된 차량 ********")
+    # if (text == "69두3842") :
+    #     print("******** 등록된 차량 ********")
+    #
+    # else:
+    #     print("******** 등록되지 않은 차량 ********")
 
-    else:
-        print("******** 등록되지 않은 차량 ********")
 
 
 

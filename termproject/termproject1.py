@@ -1,3 +1,5 @@
+# 아파트 지하 주차장 등록, 미등록 차량 검출기 프로그램
+
 from plate_preprocess import *        # 전처리 및 후보 영역 검출 함수
 from plate_candidate import *         # 후보 영역 개선 및 후보 영상 생성 함수
 from plate_classify import *  # k-NN 학습 및 분류
@@ -12,7 +14,7 @@ new_candis = [find_candidates(fill) for fill in fills]                   # 재�
 new_candis = [cand[0] for cand in new_candis if cand]                    # 재후보 있으면 저장
 candidate_imgs = [rotate_plate(image, cand) for cand in new_candis]      # 후보 영역 번호판 영상
 
-svm = cv2.ml.SVM_load("SVMtrain3.xml")                  # 학습된 데이터 로드
+svm = cv2.ml.SVM_load("SVMtrain5.xml")                  # 학습된 데이터 로드
 rows = np.reshape(candidate_imgs, (len(candidate_imgs), -1))    # 1행 데이터들로 변환
 _, results = svm.predict(rows.astype("float32"))                # 분류 수행
 result = np.where(results == 1)[0]        # 1인 값의 위치 찾기
@@ -41,6 +43,14 @@ if plate_no >= 0:
     h,w  = color_plate.shape[:2]
     image[0:h, 0:w] = color_plate        # 번호판 원본 영상에 복사
 
+    # 등록된 차량 번호
+    a = "23오0438"
+    b = "69두3842"
+
+    if plate_classify.carnum in (a, b):   # 차량 번호판이 a,b 이면
+        print("****** 등록 차량 ******")
+    else:                                 # 그 외
+        print("****** 미등록 차량 ******")
 
 else:
     print("번호판 미검출")
