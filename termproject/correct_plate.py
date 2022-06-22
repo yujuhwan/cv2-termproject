@@ -4,7 +4,7 @@ from plate_preprocess import *        # 전처리 및 후보 영역 검출 함�
 from plate_candidate import *         # 후보 영역 개선 및 후보 영상 생성 함수
 import cv2
 
-car_no = 5
+car_no = 0
 image, morph = preprocessing(car_no)  # 전처리 - 이진화
 candidates = find_candidates(morph)  # 번호판 후보 영역 검색
 

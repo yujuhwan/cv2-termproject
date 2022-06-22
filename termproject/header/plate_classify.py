@@ -84,12 +84,6 @@ def classify_numbers(cells, nknn, tknn, K1, K2, object_rois):
     print("문자 분류 결과:", int(resp2))
     print("분류 결과: ", carnum)                 # result 리스트를 join() 함수로 하나로 합쳐서 출력
 
-    # if (text == "69두3842") :
-    #     print("******** 등록된 차량 ********")
-    #
-    # else:
-    #     print("******** 등록되지 않은 차량 ********")
-
 
 
 
