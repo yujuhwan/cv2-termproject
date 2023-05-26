@@ -10,5 +10,5 @@
 ![image](https://github.com/yujuhwan/cv2-termproject/assets/95038030/70a78455-2415-4218-bc12-f3017237da8e)
 
 ### 2
-![image](https://github.com/yujuhwan/cv2-termproject/assets/95038030/043dcdb5-4d62-4e7c-8f39-311e92eb0883)
+![image](https://github.com/yujuhwan/cv2-termproject/assets/95038030/14a70236-077f-4569-ba64-55f9f1be3800)
 ![image](https://github.com/yujuhwan/cv2-termproject/assets/95038030/890534d2-addc-48de-9b68-79697da12b8c)
